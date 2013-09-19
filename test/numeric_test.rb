@@ -25,16 +25,11 @@ class NumericTest < Test::Unit::TestCase
     assert !{}.numeric?
   end
 
-  def test_basic_object
-    assert !BasicObject.new.numeric?
-  end
-
   def test_numeric
-    require 'rational'
-
     assert 1.numeric?
     assert Rational(1,2).numeric?
     assert Complex(1, 1).numeric?
     assert 2.3.numeric?
+    assert BigDecimal('1').numeric?
   end
 end

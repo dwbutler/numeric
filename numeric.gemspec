@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = version
   spec.authors       = ["David Butler"]
   spec.email         = ["dwbutler@ucla.edu"]
-  spec.description   = %q{Adds #numeric? to Ruby}
-  spec.summary       = %q{Adds #numeric? to Ruby}
-  spec.homepage      = ""
+  spec.description   = %q{Adds numeric checking to Ruby}
+  spec.summary       = %q{Adds numeric checking to Ruby}
+  spec.homepage      = "https://github.com/dwbutler/numeric"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

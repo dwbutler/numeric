@@ -1,4 +1,4 @@
-# Numeric
+# Numeric [![Build Status](https://travis-ci.org/dwbutler/numeric.png)](https://travis-ci.org/dwbutler/numeric)
 
 Checking if a given value is "numeric" is a common problem. How can we do in this Ruby?
 There are many problematic ways, such as converting to an integer or float or using a regex:
@@ -24,11 +24,26 @@ The rules are simple:
  * All strings or symbols that can be converted with `Complex()` are numeric.
  * All other objects are not numeric.
 
+If you want to get more specific, the following methods are also defined:
+
+ * `#integer?`
+ * `#float?`
+ * `#decimal?`
+ * `#rational?`
+ * `#complex?`
+
+Note that for these more specific methods, a string that can be converted to
+a `Float` (such as '1') will return `true` for `#float?`. An instance of a different
+Numeric class (such as 1, Integer) will return `false` for `#float?`.
+
 ## Compatibility
 
-The gem is tested to work in MRI Ruby 1.9+ and JRuby (1.9 mode).
-MRI 1.8.7, REE, and Rubinius all have bugs in their implementation of `Complex`
-that prevent this gem from working completely, so they are not supported.
+The gem is tested to work in MRI Ruby 1.9 - 2.0, and JRuby (1.9 mode).
+All other Rubies are too lax in what their `Numeric` classes accept, which prevents
+this gem from working completely.
+
+MRI 2.0.0's `BigDecimal` class is also too lax in what it accepts, so `'a'.decimal?` will
+unfortunately return `true`.
 
 ## Installation
 
